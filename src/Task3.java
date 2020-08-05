@@ -13,7 +13,7 @@ public class Task3 {
         System.out.println(result);
     }
 
-    //
+    //создаем таблицу префиксов для заданной строки, алгоритм КМП
     public static int[] prefixFunction(String str) {
         int size = str.length();
         int[] prefix = new int[size];
