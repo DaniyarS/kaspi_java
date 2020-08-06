@@ -22,13 +22,13 @@ public class Task4 {
                 sumOfNumbers += array[i];
             }
 
-            //ищем минимальное число
+            //ищем минимальное число и его индекс
             if (min > array[i]) {
                 min = array[i];
                 start = i;
             }
 
-            //ищем максимальное число
+            //ищем максимальное число и его индекс
             if (max < array[i]) {
                 max = array[i];
                 end = i;
