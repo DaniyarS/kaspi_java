@@ -20,23 +20,14 @@ public class DecodeXOR {
     }
 
     public static int[] decode(int[] encoded, int first) {
-        int[] output = new int[encoded.length];
+        int decodedSize = encoded.length + 1;
 
-        for (int i = 0; i < encoded.length; i++) {
-            if (i == 0) {
-                output[i] = first;
-            } else if (i == 1){
-                if (first%2 == 0) {
-                    output[i] = encoded[i] + first;
-                } else {
-                    output[i] = encoded[i] - first;
-                }
-            } else {
-                if (encoded[i-1]%2 == 0) {
-                    output[i] = encoded[i-1] - encoded[i];
-                }
+        int[] output = new int[decodedSize];
 
-            }
+        output[0] = first;
+
+        for (int i = 1; i < decodedSize; i++) {
+            output[i] = encoded[i-1] ^ encoded[i];
         }
 
         return output;
