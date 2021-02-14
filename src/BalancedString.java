@@ -14,27 +14,20 @@ public class BalancedString {
 
     public static int balancedStringSplit(String s) {
         int result = 0;
-        Stack<Character> stack = new Stack<>();
-        int countL = 0;
-        int countR = 0;
+        int ans = 0;
+        char[] c = s.toCharArray();
 
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == 'R' || s.charAt(i) == 'L') {
-                stack.push(s.charAt(i));
-            } else {
-                if (stack.isEmpty()) {
-                    //return result;
-                } else {
-                    char popVal = stack.pop();
-                    if (s.charAt(i) == 'R' && popVal == 'L') {
-                        result++;
-                    } else if (s.charAt(i) == 'L' && popVal == 'R') {
-                        result++;
-                    }
-                }
+        for (int i = c.length-1; i >= 0; i--) {
+            if(c[i] == 'L') {
+                result++;
+            } else if (c[i] == 'R'){
+                result--;
+            }
+            if(result == 0) {
+                ans++;
             }
         }
 
-        return result;
+        return ans;
     }
 }
