@@ -21,23 +21,12 @@ public class sumOfOddSubArray {
             return arr[0];
         } else {
             int sum = 0;
-            int i = 1;
-            int k = 0;
-            if (arr.length % 2 == 0) {
-                while (i < arr.length) {
-                    for (int j = k; j < i; j++) {
+
+            for (int i = 1; i < arr.length - 1; i++) {
+                if (i%2 != 0) {
+                    for (int j = 0; j < j + i; j++) {
                         sum += arr[j];
                     }
-                    k++;
-                    i += 2;
-                }
-            } else {
-                while (i <= arr.length) {
-                    for (int j = k; j < i; j++) {
-                        sum += arr[j];
-                    }
-                    k++;
-                    i += 2;
                 }
             }
 

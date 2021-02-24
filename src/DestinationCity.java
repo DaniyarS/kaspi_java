@@ -27,17 +27,19 @@ public class DestinationCity {
     public static String destCity(List<List<String>> paths) {
         if (paths.size() == 1) return paths.get(0).get(1);
 
-        ArrayList<String> city = new ArrayList<>();
+        Set<String> city = new HashSet<>();
         for (List<String> cityPair : paths) {
             city.add(cityPair.get(1));
         }
 
-        System.out.println(city);
-
         for (List<String> cityPair : paths) {
-            if (Collections.frequency(city, cityPair.get(1)) >= 2) city.remove(cityPair.get(1));
+            if (Collections.frequency(city, cityPair.get(0)) >= 1) {
+                city.remove(cityPair.get(0));
+            }
         }
 
-        return city.get(0);
+        Iterator<String> it = city.iterator();
+
+        return it.next();
     }
 }
